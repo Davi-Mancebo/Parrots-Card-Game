@@ -20,11 +20,13 @@ button{
     display: flex;
     padding-top: 40px;
 
-    display: flex;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
-    max-width: 1000px;
+    justify-content: center;
+    width: 1000px;
+
+    flex-wrap: wrap;
 }
 h1{
     margin-top: 40px;
@@ -36,41 +38,47 @@ h1{
     
     margin-bottom: 46px;
 }
-ul {
-    list-style: none;
-}
 
-li {
-    display: inline-block;
-    margin-right: 34px;
+.card {
+    width: 117px;
+    height: 156px;
+    position: relative;
+
+    margin-left: 34px;
     margin-bottom: 34px;
-    cursor: pointer;
-}
 
-.card{
+    cursor: pointer;
+  }
+  .card img{
+    width: 100px;
+  }
+  
+  .face {
+    width: 100%;
+    height: 100%;
+    background-color: #a7e9af;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 117px;
-    height: 146px;
+    position: absolute;
+    backface-visibility: hidden;
 
-    background: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+  }
 
-    transform: all 1s;
-    transition: all 1s;
-}
-.back{
-    display: none;
-}
-
-.rotate{
-    background-color: blue;
+  .front-face {
     transform: rotateY(180deg);
-}
-.rotate .back{
-    display:initial;
-}
-
+  }
+ 
+  .virada .front-face {
+    transform: rotateY(0deg);
+  }
+  
+  .virada .back-face {
+    transform: rotateY(-180deg);
+  }
+  
